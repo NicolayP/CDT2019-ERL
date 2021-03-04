@@ -34,4 +34,11 @@ To add new dependencies just instert the terminal command in the right dockerfil
 
  - Not tested on anything else than ubuntu. Need to look at how to forward Xserver equivalent in macos and Windows, or use other tools to launch the image.
 
- - The camera/webcam device is located in /dev/video0 in ubuntu, need to edit dev.bash to give it the correct camera name. 
+ - The camera/webcam device is located in /dev/video0 in ubuntu, need to edit dev.bash to give it the correct camera name.
+
+# Calibrate camera:
+ ```
+    roslaunch dope camera.launch
+    rosrun camera_calibration cameracalibrator.py --size 9x7 --square 0.02 image:=/dope/webcam/image_raw camera:=/dope/webcam  --no-service-check
+ ```
+ 
